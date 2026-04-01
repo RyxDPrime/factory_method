@@ -5,18 +5,15 @@ public class Conductor {
     private Vehiculo vehiculo;
 
     public Conductor (int tipo){
-        switch (tipo) {
-            case 1:
-                this.vehiculo = new Carro();
-                break;
-            case 2:
-                this.vehiculo = new Motor();
-                break;
-            case 3:
-                this.vehiculo = new Camion();
-                break;
-            default:
-                throw new IllegalArgumentException("Tipo de vehículo no válido");
+        if (tipo == 1) {
+            this.vehiculo = new Motor();
+        } else if (tipo == 2) {
+            this.vehiculo = new Camion();
+        } else if (tipo == 3) {
+            this.vehiculo = new Carro();
+        } else {
+            System.out.println("Tipo de vehículo no válido.");
+            this.vehiculo = null;
         }
     }
 
